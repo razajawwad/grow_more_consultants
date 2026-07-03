@@ -10,6 +10,7 @@ import Contact from './pages/Contact'
 import Countries from './pages/Countries'
 import Home from './pages/Home'
 import Services from './pages/Services'
+import SuccessStories from './pages/SuccessStories'
 
 function App() {
   const location = useLocation()
@@ -37,6 +38,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/services" element={<Services />} />
             <Route path="/countries" element={<Countries />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </motion.div>

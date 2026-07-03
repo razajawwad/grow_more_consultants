@@ -32,7 +32,7 @@ function CtaSection() {
               WhatsApp
             </a>
             <a
-              href={`tel:${company.phone}`}
+              href={`tel:${company.phoneDial}`}
               className="btn-accent inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 font-bold"
             >
               <Phone size={18} />

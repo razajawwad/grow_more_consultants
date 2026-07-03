@@ -10,7 +10,7 @@ function Contact() {
     {
       label: 'Call',
       value: company.phone,
-      href: `tel:${company.phone}`,
+      href: `tel:${company.phoneDial}`,
       icon: Phone,
     },
     {
@@ -103,7 +103,7 @@ function Contact() {
               <div className="mt-7 grid gap-5 sm:grid-cols-2">
                 {[
                   { label: 'Full name', type: 'text', placeholder: 'Your name' },
-                  { label: 'Phone number', type: 'tel', placeholder: '03XX XXXXXXX' },
+                  { label: 'Phone number', type: 'tel', placeholder: '+92 3XX XXXXXXX' },
                   { label: 'Interested country', type: 'text', placeholder: 'UK, Canada, Australia' },
                   { label: 'Last qualification', type: 'text', placeholder: 'FSc, Bachelor, Master' },
                 ].map((field) => (

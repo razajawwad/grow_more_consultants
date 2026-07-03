@@ -16,13 +16,14 @@ import {
 
 export const company = {
   name: 'Grow More Consultants',
-  tagline: 'Your Success Partner',
+  tagline: 'Study Visa and Immigration',
   email: 'info.gmcs.pk@gmail.com',
-  phone: '03164106200',
+  phone: '+92 316 4106200',
+  phoneDial: '+923164106200',
   whatsappUrl:
     'https://wa.me/923164106200?text=Assalamualaikum%20Grow%20More%20Consultants%2C%20I%20need%20study%20abroad%20guidance.',
   address:
-    'Office number 17 Business City Plaza Near KK Mart Chungi No 09 Multan',
+    'Office Number 17 Ground floor Business City plaza Bosan road Multan',
   mapUrl: 'https://maps.app.goo.gl/sMP9LUBgYzKAf1Vt6?g_st=aw',
 }
 
@@ -31,6 +32,7 @@ export const navigation = [
   { label: 'About', path: '/about' },
   { label: 'Services', path: '/services' },
   { label: 'Countries', path: '/countries' },
+  { label: 'Success Stories', path: '/success-stories' },
   { label: 'Contact', path: '/contact' },
 ]
 
@@ -240,5 +242,32 @@ export const highlights = [
     title: 'Professional process',
     icon: Sparkles,
     text: 'A polished consultation experience from first meeting to final submission support.',
+  },
+]
+
+export const successStories = [
+  {
+    name: 'Admission Guidance',
+    country: 'Study in UK',
+    image: '/images/gmc-image-28.jpg',
+    result: 'A clearer university shortlist and a complete admission file.',
+    text:
+      'The student received profile-based guidance, course comparison support, and document organization before applying.',
+  },
+  {
+    name: 'Interview Preparation',
+    country: 'Study in Australia',
+    image: '/images/gmc-image-34.jpg',
+    result: 'Improved confidence through structured mock interview practice.',
+    text:
+      'Our team helped the student explain study goals, future plans, and financial preparation with more clarity.',
+  },
+  {
+    name: 'Visa Filing Support',
+    country: 'Study in Canada',
+    image: '/images/gmc-image-17.jpg',
+    result: 'A neat, reviewed, and submission-ready visa documentation file.',
+    text:
+      'The file was organized with checklists, form guidance, and final review support before submission.',
   },
 ]

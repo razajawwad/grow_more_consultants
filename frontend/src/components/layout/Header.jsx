@@ -9,10 +9,10 @@ function Header({ theme, onToggleTheme }) {
   const [isOpen, setIsOpen] = useState(false)
 
   const linkClass = ({ isActive }) =>
-    `font-display relative rounded-md px-2.5 py-2 text-sm font-bold tracking-wide transition after:absolute after:bottom-1 after:left-2.5 after:h-0.5 after:rounded-full after:bg-[var(--color-accent)] after:transition-all xl:px-3 xl:text-base ${
+    `relative rounded-md px-2 py-2 text-sm font-extrabold tracking-normal transition after:absolute after:bottom-1 after:left-2 after:h-0.5 after:rounded-full after:bg-[var(--color-accent)] after:transition-all xl:px-2.5 ${
       isActive
-        ? 'text-[var(--color-primary-dark)] after:w-[calc(100%-1.25rem)]'
-        : 'text-slate-800 after:w-0 hover:bg-white/65 hover:text-[var(--color-primary)] hover:after:w-[calc(100%-1.25rem)]'
+        ? 'text-[var(--color-primary-dark)] after:w-[calc(100%-1rem)]'
+        : 'text-slate-800 after:w-0 hover:bg-white/65 hover:text-[var(--color-primary)] hover:after:w-[calc(100%-1rem)]'
     }`
 
   return (
@@ -30,11 +30,11 @@ function Header({ theme, onToggleTheme }) {
               className="h-14 w-20 shrink-0 rounded-md border border-[var(--color-primary)]/20 bg-white object-contain p-1 shadow-sm"
             />
             <div className="min-w-0 xl:max-w-none">
-              <p className="max-w-[175px] truncate text-base font-extrabold leading-tight text-[var(--color-primary)] min-[380px]:max-w-[220px] xl:max-w-none xl:text-lg">
+              <p className="max-w-[210px] truncate text-lg font-extrabold leading-tight text-[var(--color-primary)] min-[380px]:max-w-[260px] xl:max-w-none xl:text-xl">
                 {company.name}
               </p>
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--color-accent-dark)] xl:tracking-[0.18em]">
-                Study Abroad
+              <p className="max-w-[220px] truncate text-[10px] font-extrabold uppercase tracking-[0.16em] text-[var(--color-accent-dark)] sm:text-xs xl:max-w-none xl:tracking-[0.18em]">
+                {company.tagline}
               </p>
             </div>
           </NavLink>
