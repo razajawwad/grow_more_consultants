@@ -1,0 +1,221 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Modegi";
+  src:
+    local("Modegi"),
+    local("Modegi Serif");
+  font-display: swap;
+}
+
+:root {
+  --font-display: Modegi, "Cormorant Garamond", Georgia, serif;
+  --font-body: Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  /*
+    Previous palette backup:
+    --color-primary: #123c8c;
+    --color-primary-dark: #0d2f70;
+    --color-accent: #fbbf24;
+    --color-accent-soft: #fcd34d;
+    --color-dark: #020617;
+    --color-whatsapp: #19b95f;
+    --color-whatsapp-dark: #139f51;
+
+    Active palette below:
+    light base #f7f5ef + white surfaces
+    dark base #111827 / #1f2937
+    primary teal #0f766e
+    warm accent #f6c453
+  */
+  --color-primary: #0f766e;
+  --color-primary-dark: #134e4a;
+  --color-accent: #f6c453;
+  --color-accent-dark: #a15c07;
+  --color-accent-soft: #fde68a;
+  --color-dark: #111827;
+  --color-dark-soft: #1f2937;
+  --color-page: #f7f5ef;
+  --color-surface: #ffffff;
+  --color-whatsapp: #16a34a;
+  --color-whatsapp-dark: #15803d;
+  --nav-bg: linear-gradient(90deg, #fffaf0 0%, #f7f5ef 48%, #ecfdf5 100%);
+  --footer-bg: linear-gradient(135deg, #0b2f2c 0%, #111827 48%, #134e4a 100%);
+  --cta-bg: linear-gradient(135deg, #0f766e 0%, #134e4a 100%);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+}
+
+[data-theme="dark"] {
+  --color-primary: #5eead4;
+  --color-primary-dark: #2dd4bf;
+  --color-accent: #f6c453;
+  --color-accent-dark: #facc15;
+  --color-accent-soft: #fde68a;
+  --color-dark: #050b14;
+  --color-dark-soft: #0f172a;
+  --color-page: #07111f;
+  --color-surface: #111827;
+  --nav-bg: linear-gradient(90deg, #06131f 0%, #0f172a 48%, #0b2f2c 100%);
+  --footer-bg: linear-gradient(135deg, #020617 0%, #0b2f2c 52%, #111827 100%);
+  --cta-bg: linear-gradient(135deg, #020617 0%, #0f172a 52%, #134e4a 100%);
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--color-page);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display);
+}
+
+#root {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+}
+
+.overflow-wrap-anywhere {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgb(15 118 110 / 0.18);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgb(15 118 110 / 0.26);
+  filter: brightness(1.06);
+}
+
+.btn-primary svg,
+.btn-accent svg,
+.btn-outline svg {
+  transition: transform 180ms ease;
+}
+
+.btn-primary:hover svg,
+.btn-accent:hover svg,
+.btn-outline:hover svg {
+  transform: translateX(3px);
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, #fff3c4, var(--color-accent));
+  color: #172033;
+  box-shadow: 0 12px 24px rgb(161 92 7 / 0.15);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 30px rgb(161 92 7 / 0.24);
+  filter: saturate(1.08);
+}
+
+.btn-outline {
+  border: 1px solid rgb(255 255 255 / 0.34);
+  background: rgb(255 255 255 / 0.06);
+  color: #ffffff;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    border-color 180ms ease;
+}
+
+.btn-outline:hover {
+  transform: translateY(-2px);
+  border-color: rgb(255 255 255 / 0.62);
+  background: rgb(255 255 255 / 0.14);
+}
+
+.btn-whatsapp {
+  background: linear-gradient(135deg, var(--color-whatsapp-dark), var(--color-whatsapp));
+  color: #ffffff;
+  box-shadow: 0 14px 28px rgb(22 163 74 / 0.2);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.btn-whatsapp:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 34px rgb(22 163 74 / 0.28);
+  filter: brightness(1.05);
+}
+
+[data-theme="dark"] .bg-white {
+  background-color: var(--color-surface) !important;
+}
+
+[data-theme="dark"] .bg-\[var\(--color-page\)\] {
+  background-color: var(--color-page) !important;
+}
+
+[data-theme="dark"] .text-slate-950,
+[data-theme="dark"] .text-slate-900,
+[data-theme="dark"] .text-slate-800 {
+  color: var(--text-main) !important;
+}
+
+[data-theme="dark"] .text-slate-700,
+[data-theme="dark"] .text-slate-600,
+[data-theme="dark"] .text-slate-500 {
+  color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .border-slate-200,
+[data-theme="dark"] .border-slate-100 {
+  border-color: rgb(148 163 184 / 0.25) !important;
+}
+
+[data-theme="dark"] input,
+[data-theme="dark"] textarea {
+  color: var(--text-main);
+}
