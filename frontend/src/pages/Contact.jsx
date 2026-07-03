@@ -1,11 +1,59 @@
 import { Mail, MapPin, Phone } from 'lucide-react'
+import { useState } from 'react'
 import Container from '../components/ui/Container'
 import Reveal from '../components/ui/Reveal'
 import SectionHeading from '../components/ui/SectionHeading'
-import WhatsAppIcon from '../components/ui/WhatsAppIcon'
 import { company } from '../data/siteData'
 
+const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api/v1'
+
+const initialForm = {
+  fullName: '',
+  phone: '',
+  email: '',
+  interestedCountry: '',
+  lastQualification: '',
+  message: '',
+}
+
 function Contact() {
+  const [formData, setFormData] = useState(initialForm)
+  const [formStatus, setFormStatus] = useState({ type: 'idle', message: '' })
+
+  const handleChange = (event) => {
+    const { name, value } = event.target
+    setFormData((current) => ({ ...current, [name]: value }))
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    setFormStatus({ type: 'loading', message: 'Sending your inquiry...' })
+
+    try {
+      const response = await fetch(`${apiBaseUrl}/inquiries`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Unable to send inquiry right now.')
+      }
+
+      setFormData(initialForm)
+      setFormStatus({
+        type: 'success',
+        message: 'Your inquiry has been sent successfully. Our team will contact you soon.',
+      })
+    } catch (error) {
+      setFormStatus({
+        type: 'error',
+        message: error.message || 'Unable to send inquiry right now.',
+      })
+    }
+  }
+
   const contactItems = [
     {
       label: 'Call',
@@ -93,25 +141,30 @@ function Contact() {
       <section className="py-12 sm:py-20">
         <Container>
           <Reveal className="mx-auto max-w-4xl">
-            <form className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
+            <form onSubmit={handleSubmit} className="rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-8">
               <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-accent-dark)] sm:text-sm sm:tracking-[0.2em]">
-                WhatsApp inquiry
+                Website inquiry
               </p>
               <h2 className="mt-3 text-2xl font-extrabold leading-tight text-slate-950 sm:text-3xl">
-                Prepare your message before starting a chat.
+                Send your study abroad inquiry by email.
               </h2>
               <div className="mt-7 grid gap-5 sm:grid-cols-2">
                 {[
-                  { label: 'Full name', type: 'text', placeholder: 'Your name' },
-                  { label: 'Phone number', type: 'tel', placeholder: '+92 3XX XXXXXXX' },
-                  { label: 'Interested country', type: 'text', placeholder: 'UK, Canada, Australia' },
-                  { label: 'Last qualification', type: 'text', placeholder: 'FSc, Bachelor, Master' },
+                  { label: 'Full name', name: 'fullName', type: 'text', placeholder: 'Your name', required: true },
+                  { label: 'Phone number', name: 'phone', type: 'tel', placeholder: '+92 3XX XXXXXXX', required: true },
+                  { label: 'Email address', name: 'email', type: 'email', placeholder: 'you@example.com' },
+                  { label: 'Interested country', name: 'interestedCountry', type: 'text', placeholder: 'UK, Canada, Australia' },
+                  { label: 'Last qualification', name: 'lastQualification', type: 'text', placeholder: 'FSc, Bachelor, Master' },
                 ].map((field) => (
                   <label key={field.label} className="grid gap-2">
                     <span className="text-sm font-bold text-slate-800">{field.label}</span>
                     <input
+                      name={field.name}
                       type={field.type}
                       placeholder={field.placeholder}
+                      value={formData[field.name]}
+                      onChange={handleChange}
+                      required={field.required}
                       className="rounded-md border border-slate-200 bg-[var(--color-page)] px-4 py-3 outline-none transition focus:border-[var(--color-primary)] focus:bg-white"
                     />
                   </label>
@@ -119,25 +172,36 @@ function Contact() {
                 <label className="grid gap-2 sm:col-span-2">
                   <span className="text-sm font-bold text-slate-800">Message</span>
                   <textarea
+                    name="message"
                     rows="5"
                     placeholder="Share your preferred course, country, or visa question."
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
                     className="resize-none rounded-md border border-slate-200 bg-[var(--color-page)] px-4 py-3 outline-none transition focus:border-[var(--color-primary)] focus:bg-white"
                   />
                 </label>
               </div>
-              <p className="mt-4 text-sm leading-6 text-slate-500">
-                This form is a frontend guide for collecting details. Use the
-                WhatsApp button below to start the conversation with our team.
-              </p>
-              <a
-                href={company.whatsappUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="btn-whatsapp mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md px-5 py-3 font-bold sm:w-auto"
+              {formStatus.message && (
+                <p
+                  className={`mt-4 rounded-md px-4 py-3 text-sm font-bold leading-6 ${
+                    formStatus.type === 'success'
+                      ? 'bg-emerald-50 text-emerald-700'
+                      : formStatus.type === 'error'
+                        ? 'bg-red-50 text-red-700'
+                        : 'bg-[var(--color-page)] text-slate-700'
+                  }`}
+                >
+                  {formStatus.message}
+                </p>
+              )}
+              <button
+                type="submit"
+                disabled={formStatus.type === 'loading'}
+                className="btn-primary mt-6 inline-flex w-full items-center justify-center rounded-md px-5 py-3 font-bold disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
-                <WhatsAppIcon size={19} />
-                Send on WhatsApp
-              </a>
+                {formStatus.type === 'loading' ? 'Sending...' : 'Send Inquiry'}
+              </button>
             </form>
           </Reveal>
         </Container>
