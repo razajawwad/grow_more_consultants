@@ -1,11 +1,11 @@
-import { ArrowRight, CheckCircle2, Quote } from 'lucide-react'
+import { ArrowRight, CheckCircle2 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import CtaSection from '../components/sections/CtaSection'
 import Container from '../components/ui/Container'
 import Reveal from '../components/ui/Reveal'
 import SectionHeading from '../components/ui/SectionHeading'
-import { successStories, successStoryImages } from '../data/siteData'
+import { successStoryImages } from '../data/siteData'
 
 const featuredImages = successStoryImages.slice(0, 5)
 const galleryImages = successStoryImages.slice(5)
@@ -93,41 +93,6 @@ function SuccessStories() {
 
       <section className="py-12 sm:py-20">
         <Container>
-          <div className="grid gap-6 lg:grid-cols-3">
-            {successStories.map((story) => (
-              <Reveal key={story.name}>
-                <article className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                  <img
-                    src={story.image}
-                    alt={`${story.country} success story`}
-                    className="h-52 w-full object-cover transition duration-700 group-hover:scale-[1.06]"
-                  />
-                  <div className="p-5 sm:p-6">
-                    <div className="flex items-center justify-between gap-3">
-                      <span className="inline-flex h-11 w-11 items-center justify-center rounded-md bg-[var(--color-primary)] text-white">
-                        <Quote size={22} />
-                      </span>
-                      <span className="rounded-md bg-[var(--color-page)] px-3 py-2 text-xs font-extrabold uppercase tracking-[0.12em] text-[var(--color-primary-dark)]">
-                        {story.country}
-                      </span>
-                    </div>
-                    <h2 className="mt-5 text-xl font-extrabold text-slate-950">{story.name}</h2>
-                    <p className="mt-3 text-sm font-bold leading-7 text-[var(--color-accent-dark)]">
-                      {story.result}
-                    </p>
-                    <p className="mt-3 text-sm leading-7 text-slate-600 sm:text-base">
-                      {story.text}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      <section className="py-12 sm:py-20">
-        <Container>
           <SectionHeading
             eyebrow="Gallery"
             title="More student success moments."
@@ -155,21 +120,11 @@ function SuccessStories() {
                 transition={{ type: 'spring', stiffness: 260, damping: 22 }}
                 className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm hover:shadow-xl"
               >
-                <div className="overflow-hidden">
-                  <img
-                    src={image}
-                    alt={`Grow More Consultants success gallery ${index + 1}`}
-                    className="aspect-square w-full object-cover transition duration-700 group-hover:scale-[1.07]"
-                  />
-                </div>
-                <div className="flex items-center justify-between gap-3 p-4">
-                  <span className="text-sm font-extrabold text-slate-950">
-                    Success Story {index + 6}
-                  </span>
-                  <span className="rounded-md bg-[var(--color-page)] px-3 py-1 text-xs font-extrabold text-[var(--color-primary-dark)]">
-                    GMC
-                  </span>
-                </div>
+                <img
+                  src={image}
+                  alt={`Grow More Consultants success gallery ${index + 1}`}
+                  className="aspect-square w-full object-cover transition duration-700 group-hover:scale-[1.07]"
+                />
               </motion.article>
             ))}
           </motion.div>
