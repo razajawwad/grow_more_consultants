@@ -271,3 +271,23 @@ export const successStories = [
       'The file was organized with checklists, form guidance, and final review support before submission.',
   },
 ]
+
+export const successStoryImages = [
+  '/images/success-stories/success-story-01.jpeg',
+  '/images/success-stories/success-story-02.jpeg',
+  '/images/success-stories/success-story-03.jpeg',
+  '/images/success-stories/success-story-04.jpeg',
+  '/images/success-stories/success-story-05.jpeg',
+  '/images/success-stories/success-story-06.jpeg',
+  '/images/success-stories/success-story-07.jpeg',
+  '/images/success-stories/success-story-08.jpeg',
+  '/images/success-stories/success-story-09.jpeg',
+  '/images/success-stories/success-story-10.jpeg',
+  '/images/success-stories/success-story-11.jpeg',
+  '/images/success-stories/success-story-12.jpeg',
+  '/images/success-stories/success-story-13.jpeg',
+  '/images/success-stories/success-story-14.jpeg',
+  '/images/success-stories/success-story-15.jpeg',
+  '/images/success-stories/success-story-16.jpeg',
+  '/images/success-stories/success-story-17.jpeg',
+]

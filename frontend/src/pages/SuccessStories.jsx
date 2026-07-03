@@ -1,10 +1,14 @@
 import { ArrowRight, CheckCircle2, Quote } from 'lucide-react'
+import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import CtaSection from '../components/sections/CtaSection'
 import Container from '../components/ui/Container'
 import Reveal from '../components/ui/Reveal'
 import SectionHeading from '../components/ui/SectionHeading'
-import { successStories } from '../data/siteData'
+import { successStories, successStoryImages } from '../data/siteData'
+
+const featuredImages = successStoryImages.slice(0, 5)
+const galleryImages = successStoryImages.slice(5)
 
 function SuccessStories() {
   return (
@@ -17,6 +21,73 @@ function SuccessStories() {
             text="A few examples of how Grow More Consultants supports students with planning, admissions, interview preparation, and visa filing readiness."
             align="center"
           />
+        </Container>
+      </section>
+
+      <section className="py-12 sm:py-20">
+        <Container>
+          <div className="grid items-center gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal>
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.16em] text-[var(--color-accent-dark)] sm:text-sm sm:tracking-[0.2em]">
+                  Student achievements
+                </p>
+                <h2 className="mt-3 text-2xl font-extrabold leading-tight text-slate-950 sm:text-4xl">
+                  Proud moments from our students and their study abroad journey.
+                </h2>
+                <p className="mt-5 text-sm leading-7 text-slate-600 sm:text-base sm:leading-8">
+                  These success moments reflect the confidence students gain when
+                  admissions planning, interview preparation, and visa filing
+                  guidance are handled with clarity.
+                </p>
+                <div className="mt-6 grid gap-3 sm:grid-cols-3">
+                  {['Admissions', 'Visa filing', 'Interview prep'].map((item) => (
+                    <div key={item} className="rounded-md border border-slate-200 bg-white px-4 py-3 text-center text-sm font-extrabold text-[var(--color-primary-dark)] shadow-sm">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={{
+                hidden: {},
+                visible: { transition: { staggerChildren: 0.08 } },
+              }}
+              className="grid grid-cols-6 gap-3"
+            >
+              {featuredImages.map((image, index) => (
+                <motion.figure
+                  key={image}
+                  variants={{
+                    hidden: { opacity: 0, y: 28, scale: 0.96 },
+                    visible: { opacity: 1, y: 0, scale: 1 },
+                  }}
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 240, damping: 22 }}
+                  className={`group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm ${
+                    index === 0
+                      ? 'col-span-6 row-span-2'
+                      : index === 1 || index === 2
+                        ? 'col-span-3'
+                        : 'col-span-3 sm:col-span-2'
+                  }`}
+                >
+                  <img
+                    src={image}
+                    alt={`Grow More Consultants student success ${index + 1}`}
+                    className={`w-full object-cover transition duration-700 group-hover:scale-[1.06] ${
+                      index === 0 ? 'aspect-[16/10]' : 'aspect-square'
+                    }`}
+                  />
+                </motion.figure>
+              ))}
+            </motion.div>
+          </div>
         </Container>
       </section>
 
@@ -52,6 +123,56 @@ function SuccessStories() {
               </Reveal>
             ))}
           </div>
+        </Container>
+      </section>
+
+      <section className="py-12 sm:py-20">
+        <Container>
+          <SectionHeading
+            eyebrow="Gallery"
+            title="More student success moments."
+            text="A polished collection of success highlights from Grow More Consultants students."
+            align="center"
+          />
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.12 }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.045 } },
+            }}
+            className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            {galleryImages.map((image, index) => (
+              <motion.article
+                key={image}
+                variants={{
+                  hidden: { opacity: 0, y: 30, scale: 0.96 },
+                  visible: { opacity: 1, y: 0, scale: 1 },
+                }}
+                whileHover={{ y: -7, scale: 1.015 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 22 }}
+                className="group overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm hover:shadow-xl"
+              >
+                <div className="overflow-hidden">
+                  <img
+                    src={image}
+                    alt={`Grow More Consultants success gallery ${index + 1}`}
+                    className="aspect-square w-full object-cover transition duration-700 group-hover:scale-[1.07]"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-3 p-4">
+                  <span className="text-sm font-extrabold text-slate-950">
+                    Success Story {index + 6}
+                  </span>
+                  <span className="rounded-md bg-[var(--color-page)] px-3 py-1 text-xs font-extrabold text-[var(--color-primary-dark)]">
+                    GMC
+                  </span>
+                </div>
+              </motion.article>
+            ))}
+          </motion.div>
         </Container>
       </section>
 
