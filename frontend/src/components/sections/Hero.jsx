@@ -57,6 +57,7 @@ function Hero() {
                   className="mr-2 inline-block origin-bottom sm:mr-3"
                 >
                   {word}
+                  {index < headingWords.length - 1 ? '\u00a0' : ''}
                 </motion.span>
               ))}
             </h1>
