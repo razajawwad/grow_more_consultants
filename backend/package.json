@@ -6,7 +6,6 @@
   "main": "src/server.js",
   "scripts": {
     "dev": "nodemon src/server.js",
-    "build": "npm install --prefix ../frontend && npm run build --prefix ../frontend",
     "start": "node src/server.js",
     "lint": "eslint src",
     "format": "prettier --write ."
