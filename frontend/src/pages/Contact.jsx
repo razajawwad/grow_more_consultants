@@ -5,7 +5,7 @@ import Reveal from '../components/ui/Reveal'
 import SectionHeading from '../components/ui/SectionHeading'
 import { company } from '../data/siteData'
 
-const apiBaseUrl = import.meta.env.VITE_API_URL || 'http://127.0.0.1:5000/api/v1'
+const apiBaseUrl = import.meta.env.VITE_API_URL || 'https://growmoreconsultants.org/api/v1'
 
 const initialForm = {
   fullName: '',
