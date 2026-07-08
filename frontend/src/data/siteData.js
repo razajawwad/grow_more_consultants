@@ -245,33 +245,6 @@ export const highlights = [
   },
 ]
 
-export const successStories = [
-  {
-    name: 'Admission Guidance',
-    country: 'Study in UK',
-    image: '/images/gmc-image-28.jpg',
-    result: 'A clearer university shortlist and a complete admission file.',
-    text:
-      'The student received profile-based guidance, course comparison support, and document organization before applying.',
-  },
-  {
-    name: 'Interview Preparation',
-    country: 'Study in Australia',
-    image: '/images/gmc-image-34.jpg',
-    result: 'Improved confidence through structured mock interview practice.',
-    text:
-      'Our team helped the student explain study goals, future plans, and financial preparation with more clarity.',
-  },
-  {
-    name: 'Visa Filing Support',
-    country: 'Study in Canada',
-    image: '/images/gmc-image-17.jpg',
-    result: 'A neat, reviewed, and submission-ready visa documentation file.',
-    text:
-      'The file was organized with checklists, form guidance, and final review support before submission.',
-  },
-]
-
 export const successStoryImages = [
   '/images/success-stories/success-story-01.jpeg',
   '/images/success-stories/success-story-02.jpeg',

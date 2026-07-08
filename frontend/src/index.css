@@ -14,22 +14,6 @@
   --font-body: Manrope, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", sans-serif;
 
-  /*
-    Previous palette backup:
-    --color-primary: #123c8c;
-    --color-primary-dark: #0d2f70;
-    --color-accent: #fbbf24;
-    --color-accent-soft: #fcd34d;
-    --color-dark: #020617;
-    --color-whatsapp: #19b95f;
-    --color-whatsapp-dark: #139f51;
-
-    Active palette below:
-    light base #f7f5ef + white surfaces
-    dark base #111827 / #1f2937
-    primary teal #0f766e
-    warm accent #f6c453
-  */
   --color-primary: #0f766e;
   --color-primary-dark: #134e4a;
   --color-accent: #f6c453;
