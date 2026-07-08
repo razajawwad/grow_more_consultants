@@ -72,11 +72,11 @@ function Header({ theme, onToggleTheme }) {
           <Container className="py-4">
             <button
               type="button"
+              aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
               onClick={onToggleTheme}
-              className="mb-3 inline-flex items-center gap-2 rounded-md border border-[var(--color-primary)]/20 bg-white px-3 py-2 text-sm font-bold text-[var(--color-primary-dark)]"
+              className="mb-3 inline-flex h-11 w-11 items-center justify-center rounded-md border border-[var(--color-primary)]/20 bg-white text-[var(--color-primary-dark)] shadow-sm"
             >
               {theme === 'light' ? <Moon size={17} /> : <Sun size={17} />}
-              {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
             </button>
             <nav className="grid gap-2">
               {navigation.map((item) => (
