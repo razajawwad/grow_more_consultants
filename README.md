@@ -7,7 +7,7 @@ Professional full-stack website project for Grow More Consultants.
 ```text
 grow_more_consultants/
 frontend/   # React + Vite + Tailwind CSS UI
-backend/    # Node.js + Express API
+backend/    # Laravel API
 ```
 
 ## Frontend
@@ -18,15 +18,29 @@ npm install
 npm run dev
 ```
 
+Local frontend:
+
+```text
+http://localhost:5173
+```
+
 ## Backend
 
 ```bash
 cd backend
-npm install
-npm run dev
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan serve
+```
+
+Local API:
+
+```text
+http://127.0.0.1:8000/api/v1
 ```
 
 ## Notes
 
-- Frontend uses React, Vite, and Tailwind CSS.
-- Backend uses Node.js, Express, Zod validation, CORS, Helmet, and rate limiting.
+- Frontend uses React, Vite, Tailwind CSS, Framer Motion, and Lucide icons.
+- Backend uses Laravel with API routes, validation, CORS, and SMTP mail delivery.

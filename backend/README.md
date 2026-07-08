@@ -1,35 +1,35 @@
-# Grow More Consultants Backend
+# Grow More Consultants Laravel API
 
-Professional Node.js + Express API backend for Grow More Consultants.
+Laravel API backend for the Grow More Consultants website.
 
-## Stack
-
-- Node.js
-- Express
-- Zod validation
-- Helmet security headers
-- CORS
-- Rate limiting
-- Morgan request logging
-
-## Commands
+## Local Setup
 
 ```bash
-npm install
-npm run dev
+composer install
+cp .env.example .env
+php artisan key:generate
+php artisan serve
 ```
 
-Production:
+The local API runs at:
 
-```bash
-npm start
+```text
+http://127.0.0.1:8000/api/v1
 ```
 
-## API
+## API Routes
 
 ```text
 GET  /api/v1/health
 POST /api/v1/inquiries
 ```
 
-The inquiry endpoint currently validates and accepts inquiry data. Email/database integration can be added next.
+## Hostinger Setup
+
+Point the Laravel document root to:
+
+```text
+backend/public
+```
+
+Set the production environment variables in Hostinger and run Composer install.

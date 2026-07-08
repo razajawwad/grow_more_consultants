@@ -28,5 +28,5 @@ The generated static files are written to `dist/`.
 Create `.env` from `.env.example` and set the API URL:
 
 ```env
-VITE_API_URL=http://127.0.0.1:5000/api/v1
+VITE_API_URL=http://127.0.0.1:8000/api/v1
 ```
