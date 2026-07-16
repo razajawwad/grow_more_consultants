@@ -14,6 +14,7 @@ const initialForm = {
   interestedCountry: '',
   lastQualification: '',
   message: '',
+  website: '',
 }
 
 function Contact() {
@@ -149,6 +150,16 @@ function Contact() {
                 Send your study abroad inquiry by email.
               </h2>
               <div className="mt-7 grid gap-5 sm:grid-cols-2">
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex="-1"
+                  autoComplete="off"
+                  value={formData.website}
+                  onChange={handleChange}
+                  aria-hidden="true"
+                  className="hidden"
+                />
                 {[
                   { label: 'Full name', name: 'fullName', type: 'text', placeholder: 'Your name', required: true },
                   { label: 'Phone number', name: 'phone', type: 'tel', placeholder: '+92 3XX XXXXXXX', required: true },

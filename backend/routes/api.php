@@ -6,5 +6,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('v1')->group(function (): void {
     Route::get('/health', HealthController::class);
-    Route::post('/inquiries', [InquiryController::class, 'store']);
+    Route::post('/inquiries', [InquiryController::class, 'store'])->middleware('throttle:10,1');
 });
