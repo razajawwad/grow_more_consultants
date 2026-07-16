@@ -33,3 +33,21 @@ backend/public
 ```
 
 Set the production environment variables in Hostinger and run Composer install.
+
+## Production Mail Settings
+
+Use the Hostinger business mailbox for contact form delivery:
+
+```env
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.hostinger.com
+MAIL_PORT=465
+MAIL_USERNAME=info@growmoreconsultants.org
+MAIL_PASSWORD=your_mailbox_password
+MAIL_ENCRYPTION=ssl
+MAIL_FROM_ADDRESS=info@growmoreconsultants.org
+MAIL_FROM_NAME="Grow More Consultants"
+MAIL_TO_ADDRESS=info@growmoreconsultants.org
+```
+
+`MAIL_PASSWORD` is the mailbox password from Hostinger. Do not commit it to Git.
